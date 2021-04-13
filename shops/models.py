@@ -24,7 +24,3 @@ class ShopCategory(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name="shop_category")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="shop_category")
 
-
-class SubCategory(models.Model):
-    name = models.CharField(max_length=30)
-    slug = models.SlugField(blank=True, null=True)
