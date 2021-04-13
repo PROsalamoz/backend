@@ -14,13 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.urls import path
+from django.db import router
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.routers import DefaultRouter
+
 from . import views
 
 app_name = 'shops'
 
+router = DefaultRouter()
+router.register('', views.ListAllShops)
+
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', include(router.urls))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
