@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Shop, Category, ShopCategory
+from .models import Shop, Category, ShopCategory, SubCategory
 
 
 class ShopSerializers(serializers.ModelSerializer):
@@ -17,4 +17,10 @@ class CategorySerializers(serializers.ModelSerializer):
 class ShopCategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = ShopCategory
+        fields = '__all__'
+
+
+class SubCategorySerializers(serializers.ModelSerializer):
+    class Meta:
+        model = SubCategory
         fields = '__all__'

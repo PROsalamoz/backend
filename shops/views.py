@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .models import Shop, Category, SubCategory, ShopCategory
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.response import Response
-from .serializers import ShopSerializers, CategorySerializers,ShopCategorySerializers
+from .serializers import ShopSerializers, CategorySerializers, ShopCategorySerializers, SubCategorySerializers
 
 
 # get, post, update, and delete
@@ -20,3 +20,8 @@ class Category(viewsets.ModelViewSet):
 class View_ShopCategory(viewsets.ModelViewSet):
     queryset = ShopCategory.objects.all()
     serializer_class = ShopCategorySerializers
+
+
+class SubCategory(viewsets.ModelViewSet):
+    queryset = SubCategory.objects.all()
+    serializer_class = SubCategorySerializers
