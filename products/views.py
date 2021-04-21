@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
-from .models import Product, Order, ProductOrder
-from .serializer import ProductSerializers, OrderSerializers, ProductOrderSerializers
+from .models import Product, Order, ProductOrder, Delivery_Person
+from .serializer import ProductSerializers, OrderSerializers, ProductOrderSerializers, Delivery_PersonSerializers
 
 
 # get, post, update, and delete
@@ -19,4 +19,9 @@ class ListOrders(viewsets.ModelViewSet):
 class ListProductOrder(viewsets.ModelViewSet):
     queryset = ProductOrder.objects.all()
     serializer_class = ProductOrderSerializers
+
+
+class DeliveryPerson(viewsets.ModelViewSet):
+    queryset = Delivery_Person.objects.all()
+    serializer_class = Delivery_PersonSerializers
 

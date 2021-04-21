@@ -26,8 +26,8 @@ from . import views
 app_name = 'shops'
 
 router = DefaultRouter()
-router.register('', views.ListAllShops)
-router.register('ShopCategory', views.View_ShopCategory)
+router.register('all_shops', views.ListAllShops)
+# router.register('ShopCategory', views.View_ShopCategory)
 router.register('category', views.Category)
 router.register('subcategory', views.SubCategory)
 

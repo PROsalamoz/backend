@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
-from .models import Shop, Category, ShopCategory, SubCategory
-from .serializers import ShopSerializers, CategorySerializers, ShopCategorySerializers, SubCategorySerializers
+from .models import Shop, Category, SubCategory
+from .serializers import ShopSerializers, CategorySerializers, SubCategorySerializers
 
 
 # get, post, update, and delete
@@ -15,9 +15,9 @@ class Category(viewsets.ModelViewSet):
     serializer_class = CategorySerializers
 
 
-class View_ShopCategory(viewsets.ModelViewSet):
-    queryset = ShopCategory.objects.all()
-    serializer_class = ShopCategorySerializers
+# class View_ShopCategory(viewsets.ModelViewSet):
+#     queryset = ShopCategory.objects.all()
+#     serializer_class = ShopCategorySerializers
 
 
 class SubCategory(viewsets.ModelViewSet):

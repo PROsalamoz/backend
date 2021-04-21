@@ -9,6 +9,7 @@ class Product(models.Model):
     slug = models.SlugField(blank=True, null=True)
     img = models.ImageField(upload_to='images')
     stock = models.IntegerField()
+
     # product = models.ManyToManyField(Order, on_delete=models.CASCADE, related_name='product_ordered')
 
     def __str__(self):
@@ -27,6 +28,7 @@ class Order(models.Model):
     code = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     slug = models.SlugField(blank=True, null=True)
+
     # product = models.ManyToManyField(Product)
 
     def __str__(self):
@@ -50,3 +52,20 @@ class ProductOrder(models.Model):
 
     def __repr__(self):
         return f'{self.order.code}'
+
+
+class Delivery_Person(models.Model):
+    name = models.CharField(max_length=20)
+    phone = models.CharField(max_length=12)
+    slug = models.SlugField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Delivery_Person, self).save(*args, **kwargs)
