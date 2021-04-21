@@ -19,14 +19,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 from . import views
 
 app_name = 'shops'
 
 router = DefaultRouter()
-router.register('', views.ListAllShops)
+router.register('all_shops', views.ListAllShops)
+# router.register('ShopCategory', views.View_ShopCategory)
+router.register('category', views.Category)
+router.register('subcategory', views.SubCategory)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
