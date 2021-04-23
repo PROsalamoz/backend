@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Shop, Category, SubCategory
-from .serializers import ShopSerializers, CategorySerializers, SubCategorySerializers
+from .models import Shop, Category, SubCategory, ShopCategory
+from .serializers import ShopSerializers, CategorySerializers, SubCategorySerializers, ShopCategorySerializers
 
 
 # get, post, update, and delete
@@ -13,6 +13,9 @@ class Category(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializers
 
+class View_ShopCategory(viewsets.ModelViewSet):
+    queryset = ShopCategory.objects.all()
+    serializer_class = ShopCategorySerializers
 
 class SubCategory(viewsets.ModelViewSet):
     queryset = SubCategory.objects.all()
