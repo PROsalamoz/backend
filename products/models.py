@@ -6,11 +6,12 @@ from shops.models import SubCategory
 class Product(models.Model):
     Title = models.CharField(max_length=30)
     price = models.IntegerField(default=100)
+    Discount = models.IntegerField(default=100)
     description = models.CharField(max_length=200)
     slug = models.SlugField(blank=True, null=True)
     img = models.ImageField(upload_to='images')
     stock = models.IntegerField()
-    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='product_subcategory')
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE,null=True ,related_name='product_subcategory')
 
 
     # product = models.ManyToManyField(Order, on_delete=models.CASCADE, related_name='product_ordered')
