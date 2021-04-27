@@ -22,6 +22,7 @@ class Shop(models.Model):
 
 
 class Category(models.Model):
+    CategoryId = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     slug = models.SlugField(blank=True, null=True)
 
@@ -34,6 +35,8 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+            if not self.slug:
+                self.slug = arabic_slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
 
