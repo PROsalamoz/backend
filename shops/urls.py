@@ -27,7 +27,7 @@ app_name = 'shops'
 router = DefaultRouter()
 router.register('', views.ListAllShops)
 # router.register('ShopCategory', views.View_ShopCategory)
-# router.register('subcategory', views.SubCategory)
+router.register('subcategory', views.SubCategory)
 # router.register('category', views.Category)
 
 urlpatterns = [url(r'^SaveFile$', views.SaveFile),
