@@ -60,10 +60,11 @@ class ShopCategory(models.Model):
 
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, related_name="category")
+    SubCategoryId = models.AutoField(primary_key=True)
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, related_name="category_sub")
     name = models.CharField(max_length=30)
     slug = models.SlugField(blank=True, null=True)
-    img = models.ImageField(upload_to='images')
+    img = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -74,4 +75,6 @@ class SubCategory(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+            if not self.slug:
+                self.slug = arabic_slugify(self.name)
         super(SubCategory, self).save(*args, **kwargs)
