@@ -26,11 +26,12 @@ app_name = 'shops'
 
 router = DefaultRouter()
 router.register('', views.ListAllShops)
-router.register('ShopCategory', views.View_ShopCategory)
-router.register('subcategory', views.SubCategory)
-router.register('category', views.Category)
+# router.register('ShopCategory', views.View_ShopCategory)
+# router.register('subcategory', views.SubCategory)
+# router.register('category', views.Category)
 
-urlpatterns = [
-
-                  path('', include(router.urls))
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = [url(r'^SaveFile$', views.SaveFile),
+               url(r'^category/$', views.CategoryApi),
+               url(r'^category/([0-9]+)$', views.CategoryApi),
+               path('', include(router.urls))
+               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

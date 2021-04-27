@@ -1,3 +1,4 @@
+from django.core.files.storage import default_storage
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
@@ -53,3 +54,9 @@ def CategoryApi(request, id=0):
         category = Category.objects.get(CategoryId=id)
         category.delete()
         return JsonResponse("Deleted Succeffully!!", safe=False)
+@csrf_exempt
+def SaveFile(request):
+    file = request.FILES['uploadedFile']
+    file_name = default_storage.save(file.name, file)
+
+    return JsonResponse(file_name, safe=False)
