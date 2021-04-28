@@ -15,11 +15,6 @@ class Category(viewsets.ModelViewSet):
     serializer_class = CategorySerializers
 
 
-# class View_ShopCategory(viewsets.ModelViewSet):
-#     queryset = ShopCategory.objects.all()
-#     serializer_class = ShopCategorySerializers
-
-
 class SubCategory(viewsets.ModelViewSet):
     queryset = SubCategory.objects.all()
     serializer_class = SubCategorySerializers

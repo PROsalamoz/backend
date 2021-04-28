@@ -11,13 +11,7 @@ class ShopSerializers(serializers.ModelSerializer):
 class CategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'shops_in_category', 'category_sub']
-
-#
-# class ShopCategorySerializers(serializers.ModelSerializer):
-#     class Meta:
-#         model = ShopCategory
-#         fields = '__all__'
+        fields = ['id', 'name', 'slug', 'shops_in_category', 'bigCategory']
 
 
 class SubCategorySerializers(serializers.ModelSerializer):

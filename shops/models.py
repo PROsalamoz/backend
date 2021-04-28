@@ -20,7 +20,7 @@ class Category(models.Model):
     slug = models.SlugField(blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.slug
 
     def __repr__(self):
         return self.name
@@ -56,7 +56,7 @@ class Shop(models.Model):
 
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(Category,null=True,on_delete=models.CASCADE, related_name="category_sub")
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, related_name="bigCategory")
     name = models.CharField(max_length=30)
     slug = models.SlugField(blank=True, null=True)
     img = models.ImageField(upload_to='images', default='ss')
