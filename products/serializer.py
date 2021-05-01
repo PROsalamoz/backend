@@ -6,7 +6,7 @@ from shops.models import SubCategory
 class ProductSerializers(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['Title', 'price', 'description', 'slug', 'img', 'stock', 'subcategory']
+        fields = ['id', 'Title', 'price', 'description', 'slug', 'img', 'stock', 'subcategory']
 
 #
 # class OrderSerializers(serializers.ModelSerializer):

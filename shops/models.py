@@ -59,7 +59,7 @@ class SubCategory(models.Model):
     category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, related_name="bigCategory")
     name = models.CharField(max_length=30)
     slug = models.SlugField(blank=True, null=True)
-    img = models.ImageField(upload_to='images', default='ss')
+    img = models.ImageField(upload_to='images', default='cloud.jpg')
 
     def __str__(self):
         return self.name

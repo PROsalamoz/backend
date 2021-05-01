@@ -1,16 +1,17 @@
 from django.utils.text import slugify
 from django.db import models
-from shops.models import SubCategory
+from shops.models import SubCategory, Category
 
 
 class Product(models.Model):
     Title = models.CharField(max_length=30)
     price = models.IntegerField(default=100)
     description = models.CharField(max_length=200)
+    discount = models.IntegerField(default=10)
     slug = models.SlugField(blank=True, null=True)
-    img = models.ImageField(upload_to='images')
-    stock = models.IntegerField()
-    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name="products")
+    img = models.ImageField(upload_to='images', default="cloud.jpg", null=True, blank=True)
+    stock = models.IntegerField(default=10)
+    subcategory = models.ForeignKey(SubCategory, default=1, on_delete=models.CASCADE, related_name="products")
 
     # product = models.ManyToManyField(Order, on_delete=models.CASCADE, related_name='product_ordered')
 
