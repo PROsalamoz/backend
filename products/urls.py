@@ -27,9 +27,9 @@ app_name = 'products'
 
 router = DefaultRouter()
 router.register('all_products', views.ListAllProducts)
-router.register('orders', views.ListOrders)
-router.register('product_order', views.ListProductOrder)
-router.register('Delivery_Person', views.DeliveryPerson)
+# router.register('orders', views.ListOrders)
+# router.register('product_order', views.ListProductOrder)
+# router.register('Delivery_Person', views.DeliveryPerson)
 
 
 urlpatterns = [

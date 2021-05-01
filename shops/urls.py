@@ -27,10 +27,9 @@ app_name = 'shops'
 
 router = DefaultRouter()
 router.register('all_shops', views.ListAllShops)
-# router.register('ShopCategory', views.View_ShopCategory)
 router.register('category', views.Category)
 router.register('subcategory', views.SubCategory)
 
 urlpatterns = [
     path('', include(router.urls)),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

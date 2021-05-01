@@ -27,6 +27,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL = True
 
+# CORS_ORIGIN_WHITELIST = (
+#     'http://127.0.0.1:4200',
+# )
+
+CORS_ALLOW_CREDENTIALS = True
+
+
+# REST_FRAMEWORK={
+#     'DEFAULT_PERMISSION_CLASSES':('rest_framework.permissions.IsAuthenticated',),
+#     'DEFAULT_AUTHENTICATION_CLASSES':('rest_framework_simplejwt.authentication.JWTAuthentication',)
+# }
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +53,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'shops',
     'products',
+    'UsersAccounts',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +94,7 @@ WSGI_APPLICATION = 'djangoProject1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sa3edioon',
+        'NAME': 'ecommerce',
         'USER': 'mac',
         'PASSWORD': 'mac',
     }
@@ -130,3 +143,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'UsersAccounts.User'

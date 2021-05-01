@@ -5,22 +5,16 @@ from .models import Shop, Category, SubCategory
 class ShopSerializers(serializers.ModelSerializer):
     class Meta:
         model = Shop
-        fields = ['name', 'slug', 'address', 'phone', 'img', 'category']
+        fields = ['id', 'name', 'slug', 'address', 'phone', 'img', 'category']
 
 
 class CategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name', 'slug', 'shops_in_category', 'category_sub']
-
-#
-# class ShopCategorySerializers(serializers.ModelSerializer):
-#     class Meta:
-#         model = ShopCategory
-#         fields = '__all__'
+        fields = ['id', 'name', 'slug', 'bigCategory']
 
 
 class SubCategorySerializers(serializers.ModelSerializer):
     class Meta:
         model = SubCategory
-        fields = '__all__'
+        fields = ['id', 'name', 'slug', 'img', 'category', 'products']
