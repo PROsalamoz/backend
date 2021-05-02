@@ -2,12 +2,11 @@ from django.utils.text import slugify
 from django.db import models
 from shops.models import SubCategory, Category
 
-
 class Product(models.Model):
     Title = models.CharField(max_length=30)
     price = models.IntegerField(default=100)
     description = models.CharField(max_length=200)
-    discount = models.IntegerField(default=10)
+    discount = models.IntegerField(blank=True, null=True)
     slug = models.SlugField(blank=True, null=True)
     img = models.ImageField(upload_to='images', default="cloud.jpg", null=True, blank=True)
     stock = models.IntegerField(default=10)
