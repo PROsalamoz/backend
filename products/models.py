@@ -12,7 +12,7 @@ class Product(models.Model):
     img = models.ImageField(upload_to='images')
     stock = models.IntegerField()
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE,null=True ,related_name='product_subcategory')
-
+    rating = models.IntegerField(default=100)
 
     # product = models.ManyToManyField(Order, on_delete=models.CASCADE, related_name='product_ordered')
 
