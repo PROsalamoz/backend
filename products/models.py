@@ -60,6 +60,7 @@ class ProductOrder(models.Model):
 
 class Delivery_Person(models.Model):
     name = models.CharField(max_length=20)
+    address= models.CharField(max_length=20,default='')
     phone = models.CharField(max_length=12)
     slug = models.SlugField(blank=True, null=True)
 
