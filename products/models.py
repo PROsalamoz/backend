@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from shops.models import SubCategory
 
 class Product(models.Model):
-    productName = models.CharField(max_length=30)
+    Title = models.CharField(max_length=30)
     price = models.IntegerField(default=100)
     Discount = models.IntegerField(default=100)
     description = models.CharField(max_length=200)
