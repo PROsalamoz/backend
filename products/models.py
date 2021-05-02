@@ -9,7 +9,7 @@ class Product(models.Model):
     Discount = models.IntegerField(default=100)
     description = models.CharField(max_length=200)
     slug = models.SlugField(blank=True, null=True)
-    img = models.ImageField(upload_to='images')
+    # img = models.ImageField(upload_to='images')
     stock = models.IntegerField()
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE,null=True ,related_name='product_subcategory')
     rating = models.IntegerField(default=100)
